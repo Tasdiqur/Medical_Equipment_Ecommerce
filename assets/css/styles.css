@@ -1,0 +1,166 @@
+/* ===============================
+   MedREX Dark Theme (full file)
+   =============================== */
+
+/* ---- Theme tokens ---- */
+:root{
+  --bg: #0b0b12;          /* page background */
+  --panel: #0f1218;       /* cards/nav panels */
+  --ink: #e9eef6;         /* primary text */
+  --ink-dim: #a7b0c0;     /* secondary text */
+  --accent: #00c2ff;      /* brand accent */
+  --accent-ink: #001018;  /* text on accent */
+  --border: #2a3140;      /* borders/dividers */
+  --input-bg: #121621;    /* input background */
+  --input-border: #2a3140;
+  --input-placeholder: #7d8799;
+}
+
+/* ---- Base ---- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+}
+a { text-decoration: none; color: var(--accent); }
+a:hover { opacity: .9; }
+
+/* ---- Containers / panels ---- */
+.bg-black { background: var(--panel) !important; }
+.card { background: var(--panel); border-radius: 1rem; border: 1px solid var(--border); }
+.card .text-muted, .text-muted { color: var(--ink-dim) !important; }
+
+/* Fix utility colors that default to black on dark */
+.text-body { color: var(--ink) !important; }
+
+/* Do NOT globally override .text-dark: it’s used on light badges.
+   If you really need to, scope carefully:
+   body.bg-dark .text-dark { color: var(--ink) !important; } */
+
+/* ---- Hero ---- */
+.hero { margin-top: 1rem; }
+.hero-banner{
+  border-radius: 1rem;
+  color:#fff;
+  background:url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+  box-shadow: inset 0 0 0 2000px rgba(0,0,0,.4);
+}
+
+/* ---- Forms (critical for readability) ---- */
+.form-control,
+.form-select,
+.input-group-text,
+.form-check-input{
+  background: var(--input-bg);
+  color: var(--ink);
+  border: 1px solid var(--input-border);
+}
+.form-control::placeholder { color: var(--input-placeholder); }
+.form-control:focus,
+.form-select:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 .2rem rgba(0,194,255,.15);
+  background: var(--input-bg);
+  color: var(--ink);
+}
+
+/* ---- Buttons ---- */
+.btn-info{
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-info:hover{ filter: brightness(.95); color: var(--accent-ink); }
+
+.btn-outline-info{
+  color: var(--accent);
+  border-color: var(--accent);
+  background: transparent;
+}
+.btn-outline-info:hover{
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+
+.btn-outline-secondary{
+  color: var(--ink);
+  border-color: var(--border);
+}
+.btn-outline-secondary:hover{
+  background: var(--panel);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.btn-outline-light{
+  color: var(--ink);
+  border-color: var(--border);
+}
+.btn-outline-light:hover{
+  background: var(--panel);
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+/* ---- Badges ---- */
+.badge { border: 1px solid transparent; }
+.badge.bg-secondary{ background: #2a3140 !important; color: var(--ink) !important; }
+
+/* Keep the cart count legible on light cyan badge */
+.badge.bg-info.text-dark{ color: var(--accent-ink) !important; }
+
+/* ---- Product grid ---- */
+.product-card{ transition: transform .15s ease, box-shadow .15s ease; }
+.product-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+.product-card img{
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+/* ---- Cart rows / seller list rows ---- */
+.border { border-color: var(--border) !important; }
+.row .border .fw-semibold { color: var(--ink); }
+.row .border small { color: var(--ink-dim); }
+
+/* ---- Utilities ---- */
+small a { color:#7bdcff; }
+small a:hover{ opacity:.9; }
+.text-warning{ color:#ffda6a !important; }
+
+/* Optional: container padding for tighter dark layout */
+.container, .container-fluid { padding-left: 1rem; padding-right: 1rem; }
+.form-label,
+.form-text,
+label,
+legend {
+  color: var(--ink) !important; /* bright text */
+}
+
+/* Product card titles & prices */
+.product-card .fw-semibold,
+.product-card .fw-bold,
+.product-card small {
+  color: var(--ink) !important;
+}
+
+/* Secondary text inside product cards */
+.product-card .text-muted {
+  color: var(--ink-dim) !important;
+}
+
+/* Inputs text color already fixed earlier, but ensure consistency */
+input, textarea, select {
+  color: var(--ink) !important;
+  background-color: var(--input-bg) !important;
+  border: 1px solid var(--input-border) !important;
+}

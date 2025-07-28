@@ -1,0 +1,3 @@
+# If serving from Apache, nothing special needed for root pages.
+# API has its own rewrite rules inside /api/.htaccess.
+Options -Indexes
