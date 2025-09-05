@@ -23,6 +23,10 @@
         <a class="btn btn-outline-info btn-sm position-relative" href="cart.php">
           🛒 <span id="cartCount" class="badge bg-info text-dark position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
         </a>
+        <a href="#" class="btn btn-outline-light btn-sm position-relative" onclick="openNotif()">
+  🔔 <span id="notifCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
+  </a>
+
       </div>
     </div>
   </nav>
@@ -58,5 +62,15 @@
       });
     });
   </script>
+  <div id="notifPanel" class="offcanvas offcanvas-end text-bg-dark" tabindex="-1">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Notifications</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body" id="notifList">
+    <div class="text-muted">Loading...</div>
+  </div>
+</div>
+
 </body>
 </html>
