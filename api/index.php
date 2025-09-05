@@ -5,6 +5,8 @@ require_once __DIR__ . '/middleware/AuthMiddleware.php';
 require_once __DIR__ . '/controllers/AuthController.php';
 require_once __DIR__ . '/controllers/ProductController.php';
 require_once __DIR__ . '/controllers/OrderController.php';
+require_once __DIR__ . '/controllers/NotificationController.php';
+require_once __DIR__ . '/controllers/SellerController.php';
 
 cors_headers();
 
@@ -75,6 +77,15 @@ if ($path === '/api/payment/bkash-execute' && $method === 'POST') {
     $res = PaymentController::bkashExecute($input['paymentID']);
     Response::json($res);
 }
+    // Notifications (customer or seller)
+if ($path === '/api/notifications' && $method === 'GET')          return NotificationController::listMine();
+if (preg_match('#^/api/notifications/(\d+)/read$#', $path, $m) && $method === 'PATCH')
+    return NotificationController::markRead((int)$m[1]);
+
+// Seller fulfilment
+if ($path === '/api/seller/orders' && $method === 'GET')          return SellerController::myOrderItems();
+if (preg_match('#^/api/seller/order-items/(\d+)/status$#', $path, $m) && $method === 'POST')
+    return SellerController::updateItemStatus((int)$m[1]);
 
 
 
