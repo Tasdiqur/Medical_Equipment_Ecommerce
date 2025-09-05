@@ -45,6 +45,7 @@
   </main>
 
   <script>
+    //git commit test
     // Render the cart and bind checkout when the page is ready
     document.addEventListener('DOMContentLoaded', () => {
       // this function comes from assets/js/app.js
